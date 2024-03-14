@@ -1,0 +1,56 @@
+<nav>
+    <div class="leftContent">
+        <h1>GOAL</h1>
+        <img src="assets/img/scf_logo.png" alt="SC Freiburg Logo">
+    </div>
+
+    <div class="rightContent">
+        <button mat-button [matMenuTriggerFor]="league">Liga</button>
+        <mat-menu #league="matMenu">
+            <button mat-menu-item [matMenuTriggerFor]="bundesliga">Bundesliga</button>
+            <button mat-menu-item [matMenuTriggerFor]="europe">Europa</button>
+        </mat-menu>
+
+        <mat-menu #bundesliga="matMenu">
+            <button mat-menu-item [matMenuTriggerFor]="firstGermanLeague">1.Liga</button>
+            <button mat-menu-item [matMenuTriggerFor]="secondGermanLeague">2.Liga</button>
+            <button mat-menu-item [matMenuTriggerFor]="thirdGermanLeague">3.Liga</button>
+            <!-- <button mat-menu-item>Birds</button> -->
+            <!-- <button mat-menu-item>Mammals</button> -->
+        </mat-menu>
+
+        <mat-menu #europe="matMenu">
+            <button mat-menu-item [matMenuTriggerFor]="championsLeague">Champions League</button>
+            <button mat-menu-item [matMenuTriggerFor]="europeLeague">Europa League</button>
+            <button mat-menu-item [matMenuTriggerFor]="conferencLeague">Conference league</button>
+        </mat-menu>
+
+        <!-- Bundesliga -->
+        <mat-menu #firstGermanLeague="matMenu">
+            <button mat-menu-item>Ergebnisse</button>
+            <button mat-menu-item>Tabelle</button>
+        </mat-menu>
+        <mat-menu #secondGermanLeague="matMenu">
+            <button mat-menu-item>Ergebnisse</button>
+            <button mat-menu-item>Tabelle</button>
+        </mat-menu>
+        <mat-menu #thirdGermanLeague="matMenu">
+            <button mat-menu-item>Ergebnisse</button>
+            <button mat-menu-item>Tabelle</button>
+        </mat-menu>
+
+        <!-- Europa -->
+        <mat-menu #championsLeague="matMenu">
+            <button mat-menu-item>Ergebnisse</button>
+            <button mat-menu-item>Tabelle</button>
+        </mat-menu>
+        <mat-menu #europeLeague="matMenu">
+            <button mat-menu-item>Ergebnisse</button>
+            <button mat-menu-item>Tabelle</button>
+        </mat-menu>
+        <mat-menu #conferencLeague="matMenu">
+            <button mat-menu-item>Ergebnisse</button>
+            <button mat-menu-item>Tabelle</button>
+        </mat-menu>
+    </div>
+</nav>

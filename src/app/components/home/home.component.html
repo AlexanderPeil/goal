@@ -1,1 +1,33 @@
-<p>home works!</p>
+<div class="mainContainer">
+    <app-header></app-header>
+
+    <div class="mainContent">
+        <div class="currentSeasonsData">
+            <span class="leagueName">{{ leagueName }}</span>
+            <span class="groupName">{{ groupName}}</span>
+        </div>
+
+        <div class="line"></div>
+
+        <div class="currentMatchContainer">
+
+            <div class="currentMatchList" *ngFor="let match of matches">
+                <span class="matchDate">{{ match.matchDateTime | date:'dd-MM-yyyy HH:mm' }}</span>
+
+                <div class="currentMatch">
+                    <div class="teamInfo">
+                        <img src="{{ match.team1.teamIconUrl }}" alt="Team Logo">
+                        <span>{{ match.team1.teamName }}</span>
+                    </div>
+
+                    <div class="teamInfo">
+                        <img src="{{ match.team2.teamIconUrl }}" alt="Team Logo">
+                        <span>{{ match.team2.teamName }}</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <app-footer></app-footer>
+</div>

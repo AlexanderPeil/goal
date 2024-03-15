@@ -1,11 +1,13 @@
 nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
     background-color: #e40521;
-    color: white;
-    height: 100px;
+    padding: 20px;
+    height: 80px;
 }
 
 .leftContent {
-
     img {
         width: 50px;
     }

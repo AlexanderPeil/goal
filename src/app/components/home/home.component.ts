@@ -53,6 +53,7 @@ export class HomeComponent implements OnInit {
       const halfTimeResult = match.matchResults.find(result => result.resultName === 'Halbzeitergebnis');
 
       return {
+        matchID: match.matchID,
         matchDateTime: match.matchDateTime,
         team1: {
           teamName: match.team1.teamName,
@@ -80,27 +81,5 @@ export class HomeComponent implements OnInit {
       };
     });
   }
-
-
-  // checkForResults(data: MatchDataFromApi[]): void {
-  //   this.results = data.map(matchData => {
-  //     const halfTimeResult = matchData.matchResults.find(result => result.resultName === "Halbzeitergebnis");
-  //     const endResult = matchData.matchResults.find(result => result.resultName === 'Endergebnis');
-
-  //     return {
-  //       matchID: matchData.matchID,
-  //       team1: matchData.team1.teamName,
-  //       team2: matchData.team2.teamName,
-  //       halfTimeResult: halfTimeResult ? {
-  //         pointsTeam1: halfTimeResult.pointsTeam1,
-  //         pointsTeam2: halfTimeResult.pointsTeam2
-  //       } : undefined,
-  //       endResult: endResult ? {
-  //         pointsTeam1: endResult.pointsTeam1,
-  //         pointsTeam2: endResult.pointsTeam2
-  //       } : undefined
-  //     };
-  //   });
-  // }
 
 }

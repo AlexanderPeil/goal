@@ -10,3 +10,9 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 .teamLogo {
     width: 35px;
 }
+
+.textEllipsis {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}

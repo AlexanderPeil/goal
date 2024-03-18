@@ -1,0 +1,37 @@
+.teamContainer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 25px;
+    padding: 10px;
+    color: white;
+    background-color: #696969;
+}
+
+.teamInfo {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    span {
+        width: 120px;
+    }
+}
+
+.teamInfoLogo {
+    width: 50px;
+    height: 50px;
+    object-fit: contain;
+}
+
+.matchTime {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.resultContainer {
+    font-size: 25px;
+}

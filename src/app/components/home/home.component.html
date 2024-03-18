@@ -11,14 +11,17 @@
 
         <div class="currentMatchContainer">
 
-            <div class="currentMatchList" *ngFor="let match of matches">
+            <div class="currentMatchList" *ngFor="let match of matches" [routerLink]="['/match-info', match.matchID]">
                 <span class="matchDate">{{ match.matchDateTime | date:'dd-MM-yyyy HH:mm' }}</span>
 
+                <!-- Current match container -->
                 <div class="currentMatch">
+
+                    <!-- Team 1 -->
                     <div class="teamInfo">
                         <div class="currentTeam">
                             <img class="teamLogo" src="{{ match.team1.teamIconUrl }}" alt="Team Logo">
-                            <span>{{ match.team1.teamName }}</span>
+                            <span class="textEllipsis">{{ match.team1.teamName }}</span>
                         </div>
                         <div class="resultContainer">
                             <span>{{ match.finalResult?.pointsTeam1 }}</span>
@@ -26,10 +29,11 @@
                         </div>
                     </div>
 
+                    <!-- Team 2 -->
                     <div class="teamInfo">
                         <div class="currentTeam">
                             <img class="teamLogo" src="{{ match.team2.teamIconUrl }}" alt="Team Logo">
-                            <span>{{ match.team2.teamName }}</span>
+                            <span class="textEllipsis">{{ match.team2.teamName }}</span>
                         </div>
                         <div class="resultContainer">
                             <span>{{ match.finalResult?.pointsTeam2 }}</span>

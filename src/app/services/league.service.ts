@@ -31,4 +31,10 @@ export class LeagueService {
     return this.http.get(url);
   }
 
+
+  getMatchById(matchId: number): Observable<any> {
+    const url = `${this.baseUrl}${this.getMatchData}${matchId}`;
+    return this.http.get(url);
+  }
+
 }

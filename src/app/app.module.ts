@@ -16,6 +16,7 @@ import { HomeComponent } from './components/home/home.component';
 import { BundesligaTableComponent } from './leagues/germany/bundesliga/bundesliga-table/bundesliga-table.component';
 import { BundesligaMatchdayComponent } from './leagues/germany/bundesliga/bundesliga-matchday/bundesliga-matchday.component';
 import { BundesligaTeamsComponent } from './leagues/germany/bundesliga/bundesliga-teams/bundesliga-teams.component';
+import { MatchInfoComponent } from './components/match-info/match-info.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { BundesligaTeamsComponent } from './leagues/germany/bundesliga/bundeslig
     HomeComponent,
     BundesligaTableComponent,
     BundesligaMatchdayComponent,
-    BundesligaTeamsComponent
+    BundesligaTeamsComponent,
+    MatchInfoComponent
   ],
   imports: [
     BrowserModule,

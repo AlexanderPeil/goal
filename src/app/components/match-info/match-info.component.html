@@ -1,0 +1,34 @@
+<div class="mainContainer">
+    <app-header></app-header>
+
+    <div class="teamContainer">
+        <div class="teamInfo">
+            <img class="teamInfoLogo" src="{{ matchDetails?.team1?.teamIconUrl }}" alt="Team Logo">
+            <span class="textEllipsis">{{ matchDetails?.team1?.teamName }}</span>
+        </div>
+
+        <div *ngIf="matchDetails?.matchIsFinished == false" class="matchTime">
+            <span>{{ matchDetails?.matchDateTime | date:'dd-MM-yy'}}</span>
+            <span>{{ matchDetails?.matchDateTime | date:'HH:mm'}}</span>
+        </div>
+
+        <div *ngIf="matchDetails?.matchIsFinished == true" class="resultContainer">
+            <ng-container *ngIf="matchDetails?.matchResults?.[1] as secondMatchResult">
+                <span>{{ secondMatchResult.pointsTeam1 }}</span>
+            </ng-container>
+
+            <span>-</span>
+
+            <ng-container *ngIf="matchDetails?.matchResults?.[1] as secondMatchResult">
+                <span>{{ secondMatchResult.pointsTeam2 }}</span>
+            </ng-container>
+        </div>
+
+        <div class="teamInfo">
+            <img class="teamInfoLogo" src="{{ matchDetails?.team2?.teamIconUrl }}" alt="Team Logo">
+            <span class="textEllipsis">{{ matchDetails?.team2?.teamName }}</span>
+        </div>
+    </div>
+
+    <app-footer></app-footer>
+</div>

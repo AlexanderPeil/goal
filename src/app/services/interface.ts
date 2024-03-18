@@ -9,6 +9,7 @@ export interface TeamInfo {
 }
 
 export interface CurrentMatchData {
+    matchID: number;
     matchDateTime: string;
     team1: TeamInfo;
     team2: TeamInfo;
@@ -47,22 +48,6 @@ export interface MatchResult {
     pointsTeam2: string;
 }
 
-
-// export interface MatchDisplayResult {
-//     matchID: number;
-//     team1: string;
-//     team2: string;
-//     halfTimeResult?: {
-//       pointsTeam1: number;
-//       pointsTeam2: number;
-//     };
-//     endResult?: {
-//       pointsTeam1: number;
-//       pointsTeam2: number;
-//     };
-//   }
-
-
 export interface TableData {
     teamName: string;
     teamIconUrl: string;
@@ -73,4 +58,32 @@ export interface TableData {
     goalDiff: number;
     opponentGoals: number;
     points: number;
+}
+
+
+export interface CurrentMatchInfo {
+    matchID: number;
+    matchDateTime: string;
+    matchIsFinished: boolean;
+    matchResults: MatchResult[];
+    team1: {
+        teamName: string;
+        teamIconUrl: string;
+    };
+    team2: {
+        teamName: string;
+        teamIconUrl: string;
+    };
+    goals?: Goals[];
+}
+
+
+export interface Goals {
+    scoreTeam1: number;
+    scoreTeam2: number;
+    matchMinute: number;
+    goalGetterName: string;
+    isPenalty: boolean;
+    isOwnGoal: boolean;
+    isOvertime: boolean;
 }

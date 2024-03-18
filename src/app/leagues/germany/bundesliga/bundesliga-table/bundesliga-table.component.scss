@@ -11,11 +11,8 @@ table {
         align-items: center;
     }
 
-    .teamName {
-        white-space: nowrap;
+    .teamNameWidth {
         width: 80px;
-        overflow: hidden;
-        text-overflow: ellipsis;
     }
 
     tr {

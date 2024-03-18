@@ -1,0 +1,30 @@
+table {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+
+    .currentTeam {
+        display: flex;
+        gap: 10px;
+        align-items: center;
+    }
+
+    .teamName {
+        white-space: nowrap;
+        width: 80px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+    tr {
+        display: flex;
+        gap: 10px;
+        align-items: center;
+    }
+}
+
+.teamGoals {
+    display: flex;
+}

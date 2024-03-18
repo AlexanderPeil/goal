@@ -1,0 +1,30 @@
+<app-header></app-header>
+
+<div class="mainContainer">
+
+    <!-- <table>
+        <tr *ngFor="let position of currentPlace"> 
+            <td>{{ position }}.</td>
+        </tr>
+    </table> -->
+
+    <table>
+        <tr *ngFor="let team of table; let i = index">
+            <div class="currentTeam">
+                <td>{{ i + 1 }}</td>
+                <img class="teamLogo" src="{{ team.teamIconUrl }}" alt="">
+                <td class="teamName">{{ team.teamName }}.</td>
+            </div>
+            <span>{{ playedgames(team) }}</span>
+            <div class="teamGoals">
+                <td>{{ team.goals }}</td>:
+                <td>{{ team.opponentGoals }}</td>
+            </div>
+            <span>{{ team.goalDiff }}</span>
+            <span>{{ team.points }}</span>
+        </tr>
+    </table>
+
+</div>
+
+<app-footer></app-footer>

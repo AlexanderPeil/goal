@@ -5,10 +5,20 @@ nav {
     background-color: #e40521;
     padding: 20px;
     height: 80px;
+    color: white;
 }
 
 .leftContent {
+
+    h1 {
+        margin: unset;
+    }
+
     img {
         width: 50px;
     }
+}
+
+.headerBtn {
+    font-size: 24px;
 }

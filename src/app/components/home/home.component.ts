@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { CurrentMatchData, CurrentSeasonData, MatchDataFromApi } from 'src/app/services/interface';
+import { CurrentMatchData, CurrentSeasonData, MatchDataFromApi, MatchResult } from 'src/app/services/interface';
 import { LeagueService } from 'src/app/services/league.service';
 
 @Component({
@@ -13,8 +13,8 @@ export class HomeComponent implements OnInit {
   matchDateTime: string = '';
   teamIconUrl: string = '';
   teamName: string = '';
-
   matches: CurrentMatchData[] = [];
+  // results: MatchDisplayResult[] = [];
 
 
   constructor(private ls: LeagueService) { }
@@ -31,11 +31,12 @@ export class HomeComponent implements OnInit {
       console.log(data);
       this.getCurrentLeagueData(data);
       this.getCurrentMatchDay(data);
+      // this.checkForResults(data);
     });
   }
 
   loadCurentMatchday(leagueId: string) {
-    this.ls.getCurrentGroup(leagueId).subscribe((data: CurrentSeasonData) => {
+    this.ls.getGroupByLeague(leagueId).subscribe((data: CurrentSeasonData) => {
       this.groupName = data.groupName;
     })
   }
@@ -46,18 +47,60 @@ export class HomeComponent implements OnInit {
   }
 
 
-  getCurrentMatchDay(matchData: CurrentMatchData[]) {
-    this.matches = matchData.map(match => ({
-      matchDateTime: match.matchDateTime,
-      team1: {
-        teamName: match.team1.teamName,
-        teamIconUrl: match.team1.teamIconUrl
-      },
-      team2: {
-        teamName: match.team2.teamName,
-        teamIconUrl: match.team2.teamIconUrl
-      },
-    }));  
+  getCurrentMatchDay(matchData: MatchDataFromApi[]) {
+    this.matches = matchData.map(match => {
+      const finalResult = match.matchResults.find(result => result.resultName === 'Endergebnis');
+      const halfTimeResult = match.matchResults.find(result => result.resultName === 'Halbzeitergebnis');
+
+      return {
+        matchDateTime: match.matchDateTime,
+        team1: {
+          teamName: match.team1.teamName,
+          teamIconUrl: match.team1.teamIconUrl,
+        },
+        team2: {
+          teamName: match.team2.teamName,
+          teamIconUrl: match.team2.teamIconUrl,
+        },
+        matchResults: match.matchResults.map(result => ({
+          resultName: result.resultName,
+          pointsTeam1: result.pointsTeam1,
+          pointsTeam2: result.pointsTeam2,
+        })),
+        halfTimeResult: halfTimeResult ? {
+          resultName: halfTimeResult.resultName,
+          pointsTeam1: halfTimeResult.pointsTeam1,
+          pointsTeam2: halfTimeResult.pointsTeam2,
+        } : undefined,
+        finalResult: finalResult ? {
+          resultName: finalResult.resultName,
+          pointsTeam1: finalResult.pointsTeam1,
+          pointsTeam2: finalResult.pointsTeam2,
+        } : undefined
+      };
+    });
   }
+
+
+  // checkForResults(data: MatchDataFromApi[]): void {
+  //   this.results = data.map(matchData => {
+  //     const halfTimeResult = matchData.matchResults.find(result => result.resultName === "Halbzeitergebnis");
+  //     const endResult = matchData.matchResults.find(result => result.resultName === 'Endergebnis');
+
+  //     return {
+  //       matchID: matchData.matchID,
+  //       team1: matchData.team1.teamName,
+  //       team2: matchData.team2.teamName,
+  //       halfTimeResult: halfTimeResult ? {
+  //         pointsTeam1: halfTimeResult.pointsTeam1,
+  //         pointsTeam2: halfTimeResult.pointsTeam2
+  //       } : undefined,
+  //       endResult: endResult ? {
+  //         pointsTeam1: endResult.pointsTeam1,
+  //         pointsTeam2: endResult.pointsTeam2
+  //       } : undefined
+  //     };
+  //   });
+  // }
 
 }

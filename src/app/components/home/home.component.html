@@ -16,13 +16,25 @@
 
                 <div class="currentMatch">
                     <div class="teamInfo">
-                        <img src="{{ match.team1.teamIconUrl }}" alt="Team Logo">
-                        <span>{{ match.team1.teamName }}</span>
+                        <div class="currentTeam">
+                            <img class="teamLogo" src="{{ match.team1.teamIconUrl }}" alt="Team Logo">
+                            <span>{{ match.team1.teamName }}</span>
+                        </div>
+                        <div class="resultContainer">
+                            <span>{{ match.finalResult?.pointsTeam1 }}</span>
+                            <span>({{ match.halfTimeResult?.pointsTeam1 }})</span>
+                        </div>
                     </div>
 
                     <div class="teamInfo">
-                        <img src="{{ match.team2.teamIconUrl }}" alt="Team Logo">
-                        <span>{{ match.team2.teamName }}</span>
+                        <div class="currentTeam">
+                            <img class="teamLogo" src="{{ match.team2.teamIconUrl }}" alt="Team Logo">
+                            <span>{{ match.team2.teamName }}</span>
+                        </div>
+                        <div class="resultContainer">
+                            <span>{{ match.finalResult?.pointsTeam2 }}</span>
+                            <span>({{ match.halfTimeResult?.pointsTeam2 }})</span>
+                        </div>
                     </div>
                 </div>
             </div>

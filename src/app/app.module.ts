@@ -13,13 +13,19 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { HomeComponent } from './components/home/home.component';
+import { BundesligaTableComponent } from './leagues/germany/bundesliga/bundesliga-table/bundesliga-table.component';
+import { BundesligaMatchdayComponent } from './leagues/germany/bundesliga/bundesliga-matchday/bundesliga-matchday.component';
+import { BundesligaTeamsComponent } from './leagues/germany/bundesliga/bundesliga-teams/bundesliga-teams.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
     FooterComponent,
-    HomeComponent
+    HomeComponent,
+    BundesligaTableComponent,
+    BundesligaMatchdayComponent,
+    BundesligaTeamsComponent
   ],
   imports: [
     BrowserModule,

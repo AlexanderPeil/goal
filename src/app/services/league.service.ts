@@ -8,7 +8,8 @@ import { Observable } from 'rxjs';
 export class LeagueService {
   baseUrl = 'https://api.openligadb.de';
   getMatchData = '/getmatchdata/';
-  getcurrentgroup = '/getcurrentgroup/';
+  getCurrentGroup = '/getcurrentgroup/';
+  getCurrentTable = '/getbltable/';
 
   constructor(private http: HttpClient) { }
 
@@ -19,8 +20,14 @@ export class LeagueService {
   }
 
 
-  getCurrentGroup(leagueId: string):Observable<any> {
-    const url = `${this.baseUrl}${this.getcurrentgroup}${leagueId}`;
+  getGroupByLeague(leagueId: string):Observable<any> {
+    const url = `${this.baseUrl}${this.getCurrentGroup}${leagueId}`;
+    return this.http.get(url);
+  }
+
+
+  getTableByLeague(leagueId: string): Observable<any> {
+    const url = `${this.baseUrl}${this.getCurrentTable}${leagueId}/${2023}`;
     return this.http.get(url);
   }
 

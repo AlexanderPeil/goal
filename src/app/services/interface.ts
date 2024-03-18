@@ -1,6 +1,6 @@
 export interface CurrentSeasonData {
     leagueName: string;
-    groupName: string; 
+    groupName: string;
 }
 
 export interface TeamInfo {
@@ -12,10 +12,9 @@ export interface CurrentMatchData {
     matchDateTime: string;
     team1: TeamInfo;
     team2: TeamInfo;
-    // matchIsFinished: boolean;
-    // matchResults: any[]; 
-    // goals: any[]; 
-    // location: any; 
+    matchResults: MatchResult[];
+    halfTimeResult?: MatchResult;
+    finalResult?: MatchResult;
 }
 
 export interface MatchDataFromApi {
@@ -25,30 +24,53 @@ export interface MatchDataFromApi {
     leagueSeason: number;
     leagueShortcut: string;
     matchDateTime: string;
-    matchDateTimeUTC: string;
     group: {
         groupName: string;
         groupOrderID: number;
         groupID: number;
     };
     team1: {
-        teamId: number;
         teamName: string;
-        shortName: string;
         teamIconUrl: string;
-        teamGroupName: null | string;
     };
     team2: {
-        teamId: number;
         teamName: string;
-        shortName: string;
         teamIconUrl: string;
-        teamGroupName: null | string;
     };
+    matchResults: MatchResult[];
     lastUpdateDateTime: string;
-    // matchIsFinished: boolean;
-    // matchResults: any[];
-    // goals: any[];
-    // location: null | string;
-    // numberOfViewers: null | number;
+}
+
+export interface MatchResult {
+    resultName: string;
+    pointsTeam1: string;
+    pointsTeam2: string;
+}
+
+
+// export interface MatchDisplayResult {
+//     matchID: number;
+//     team1: string;
+//     team2: string;
+//     halfTimeResult?: {
+//       pointsTeam1: number;
+//       pointsTeam2: number;
+//     };
+//     endResult?: {
+//       pointsTeam1: number;
+//       pointsTeam2: number;
+//     };
+//   }
+
+
+export interface TableData {
+    teamName: string;
+    teamIconUrl: string;
+    won: number;
+    lost: number;
+    draw: number;
+    goals: number;
+    goalDiff: number;
+    opponentGoals: number;
+    points: number;
 }

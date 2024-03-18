@@ -1,11 +1,11 @@
 <nav>
     <div class="leftContent">
-        <h1>GOAL</h1>
-        <img src="assets/img/scf_logo.png" alt="SC Freiburg Logo">
+        <h1 routerLink="/home">GOAL</h1>
+        <!-- <img src="assets/img/scf_logo.png" alt="SC Freiburg Logo"> -->
     </div>
 
     <div class="rightContent">
-        <button mat-button [matMenuTriggerFor]="league">Liga</button>
+        <button class="headerBtn" mat-button [matMenuTriggerFor]="league">Liga</button>
         <mat-menu #league="matMenu">
             <button mat-menu-item [matMenuTriggerFor]="bundesliga">Bundesliga</button>
             <button mat-menu-item [matMenuTriggerFor]="europe">Europa</button>
@@ -27,8 +27,9 @@
 
         <!-- Bundesliga -->
         <mat-menu #firstGermanLeague="matMenu">
-            <button mat-menu-item>Ergebnisse</button>
-            <button mat-menu-item>Tabelle</button>
+            <button mat-menu-item routerLink="/bundesliga-table">Tabelle</button>
+            <button mat-menu-item routerLink="/bundesliga-matchday">Ergebnisse</button>
+            <button mat-menu-item routerLink="/bundesliga-teams">Teams</button>
         </mat-menu>
         <mat-menu #secondGermanLeague="matMenu">
             <button mat-menu-item>Ergebnisse</button>

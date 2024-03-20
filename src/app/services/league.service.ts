@@ -11,7 +11,8 @@ export class LeagueService {
   getCurrentGroup = '/getcurrentgroup/';
   getCurrentTable = '/getbltable/';
 
-  constructor(private http: HttpClient) { }
+
+  constructor(private http: HttpClient) {}
 
 
   getMatchesByLeague(leagueId: string): Observable<any> {

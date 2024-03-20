@@ -1,14 +1,15 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { FavouritesService } from 'src/app/services/favourites.service';
-import { CurrentMatchData, CurrentSeasonData, MatchDataFromApi, MatchResult } from 'src/app/services/interface';
+import { CurrentMatchData, CurrentSeasonData, MatchDataFromApi } from 'src/app/services/interface';
 import { LeagueService } from 'src/app/services/league.service';
 
 @Component({
-  selector: 'app-home',
-  templateUrl: './home.component.html',
-  styleUrls: ['./home.component.scss']
+  selector: 'app-matchday',
+  templateUrl: './matchday.component.html',
+  styleUrls: ['./matchday.component.scss']
 })
-export class HomeComponent implements OnInit {
+export class MatchdayComponent implements OnInit {
   leagueName: string = '';
   groupName: string = '';
   matchDateTime: string = '';
@@ -20,12 +21,24 @@ export class HomeComponent implements OnInit {
 
   constructor(
     private ls: LeagueService,
-    private fs: FavouritesService) { }
+    private fs: FavouritesService,
+    private route: ActivatedRoute) { }
 
 
   ngOnInit(): void {
-    this.loadLeagueMatches('bl1');
+    // this.loadLeagueMatches('bl1');
+    this.getCurrentLeagueId();
     this.loadCurentMatchday('bl1');
+  }
+
+
+  getCurrentLeagueId() {
+    this.route.paramMap.subscribe(params => {
+      const leagueId = params.get('leagueId');
+      if (leagueId) {
+        this.loadLeagueMatches(leagueId);
+      }
+    })
   }
 
 
@@ -83,6 +96,6 @@ export class HomeComponent implements OnInit {
         } : undefined
       };
     });
-  }
+  } 
 
 }

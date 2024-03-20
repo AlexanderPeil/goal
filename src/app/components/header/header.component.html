@@ -7,50 +7,88 @@
     <div class="rightContent">
         <button class="headerBtn" mat-button [matMenuTriggerFor]="league">Liga</button>
         <mat-menu #league="matMenu">
+
+            <!-- Verschiedene Ligen -->
             <button mat-menu-item [matMenuTriggerFor]="bundesliga">Bundesliga</button>
-            <button mat-menu-item [matMenuTriggerFor]="europe">Europa</button>
+            <button mat-menu-item [matMenuTriggerFor]="inter">International</button>
+            <button mat-menu-item [matMenuTriggerFor]="europe">Europapokal</button>
         </mat-menu>
 
+
+        <!-- Deutschland Auswahl -->
         <mat-menu #bundesliga="matMenu">
             <button mat-menu-item [matMenuTriggerFor]="firstGermanLeague">1.Liga</button>
             <button mat-menu-item [matMenuTriggerFor]="secondGermanLeague">2.Liga</button>
             <button mat-menu-item [matMenuTriggerFor]="thirdGermanLeague">3.Liga</button>
-            <!-- <button mat-menu-item>Birds</button> -->
-            <!-- <button mat-menu-item>Mammals</button> -->
+            <button mat-menu-item [matMenuTriggerFor]="cupGermany">DFB Pokal</button>
         </mat-menu>
 
+
+        <!-- Internationale Ligen Auswahl -->
+        <mat-menu #inter="matMenu">
+            <button mat-menu-item [matMenuTriggerFor]="egnland">England</button>
+            <button mat-menu-item [matMenuTriggerFor]="spain">Spanien</button>
+            <button mat-menu-item [matMenuTriggerFor]="italy">Italien</button>
+        </mat-menu>
+
+
+        <!-- Europapokal Auswahl -->
         <mat-menu #europe="matMenu">
             <button mat-menu-item [matMenuTriggerFor]="championsLeague">Champions League</button>
             <button mat-menu-item [matMenuTriggerFor]="europeLeague">Europa League</button>
             <button mat-menu-item [matMenuTriggerFor]="conferencLeague">Conference league</button>
         </mat-menu>
 
+
         <!-- Bundesliga -->
         <mat-menu #firstGermanLeague="matMenu">
-            <button mat-menu-item routerLink="/bundesliga-table">Tabelle</button>
-            <button mat-menu-item routerLink="/bundesliga-matchday">Ergebnisse</button>
+            <button mat-menu-item [routerLink]="['/Spieltag', 'bl1']">Ergebnisse</button>
+            <button mat-menu-item [routerLink]="['/Tabelle', 'bl1']">Tabelle</button>
             <button mat-menu-item routerLink="/bundesliga-teams">Teams</button>
         </mat-menu>
         <mat-menu #secondGermanLeague="matMenu">
-            <button mat-menu-item>Ergebnisse</button>
-            <button mat-menu-item>Tabelle</button>
+            <button mat-menu-item [routerLink]="['/Spieltag', 'bl2']">Ergebnisse</button>
+            <button mat-menu-item [routerLink]="['/Spieltag', 'bl2']">Tabelle</button>
         </mat-menu>
         <mat-menu #thirdGermanLeague="matMenu">
+            <button mat-menu-item [routerLink]="['/Spieltag', 'bl3']">Ergebnisse</button>
+            <button mat-menu-item [routerLink]="['/Spieltag', 'bl3']">Tabelle</button>
+        </mat-menu>
+
+
+        <!-- DFB Pokal -->
+        <mat-menu #cupGermany="matMenu">
+            <button mat-menu-item [routerLink]="['/Spieltag', 'dfb']">Ergebnisse</button>
+        </mat-menu>
+
+
+        <!-- International -->
+        <mat-menu #egnland="matMenu">
+            <button mat-menu-item [routerLink]="['/Spieltag', 'pl1']">Ergebnisse</button>
+            <button mat-menu-item [routerLink]="['/Tabelle', 'pl1']">Tabelle</button>
+            <button mat-menu-item routerLink="/bundesliga-teams">Teams</button>
+        </mat-menu>
+        <mat-menu #spain="matMenu">
+            <button mat-menu-item [routerLink]="['/Spieltag', 'la']">Ergebnisse</button>
+            <button mat-menu-item [routerLink]="['/Tabelle', 'la']">Tabelle</button>
+        </mat-menu>
+        <mat-menu #italy="matMenu">
             <button mat-menu-item>Ergebnisse</button>
             <button mat-menu-item>Tabelle</button>
         </mat-menu>
 
-        <!-- Europa -->
+
+        <!-- Europapokal -->
         <mat-menu #championsLeague="matMenu">
-            <button mat-menu-item>Ergebnisse</button>
+            <button mat-menu-item [routerLink]="['/Spieltag', 'champion1']">Ergebnisse</button>
             <button mat-menu-item>Tabelle</button>
         </mat-menu>
         <mat-menu #europeLeague="matMenu">
-            <button mat-menu-item>Ergebnisse</button>
+            <button mat-menu-item [routerLink]="['/Spieltag', 'uel2023']">Ergebnisse</button>
             <button mat-menu-item>Tabelle</button>
         </mat-menu>
         <mat-menu #conferencLeague="matMenu">
-            <button mat-menu-item>Ergebnisse</button>
+            <button mat-menu-item [routerLink]="['/Spieltag', 'uefaconf2023']">Ergebnisse</button>
             <button mat-menu-item>Tabelle</button>
         </mat-menu>
     </div>

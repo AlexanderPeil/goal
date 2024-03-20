@@ -13,10 +13,15 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { HomeComponent } from './components/home/home.component';
-import { BundesligaTableComponent } from './leagues/germany/bundesliga/bundesliga-table/bundesliga-table.component';
-import { BundesligaMatchdayComponent } from './leagues/germany/bundesliga/bundesliga-matchday/bundesliga-matchday.component';
-import { BundesligaTeamsComponent } from './leagues/germany/bundesliga/bundesliga-teams/bundesliga-teams.component';
 import { MatchInfoComponent } from './components/match-info/match-info.component';
+
+import { environment } from '../environments/environment';
+import { provideFirebaseApp, initializeApp } from '@angular/fire/app';
+import { getFirestore, provideFirestore } from '@angular/fire/firestore';
+import { provideAuth, getAuth } from '@angular/fire/auth';
+import { FavouritesComponent } from './components/favourites/favourites.component';
+import { MatchdayComponent } from './components/matchday/matchday.component';
+import { TableComponent } from './components/table/table.component';
 
 @NgModule({
   declarations: [
@@ -24,10 +29,10 @@ import { MatchInfoComponent } from './components/match-info/match-info.component
     HeaderComponent,
     FooterComponent,
     HomeComponent,
-    BundesligaTableComponent,
-    BundesligaMatchdayComponent,
-    BundesligaTeamsComponent,
-    MatchInfoComponent
+    MatchInfoComponent,
+    FavouritesComponent,
+    MatchdayComponent,
+    TableComponent
   ],
   imports: [
     BrowserModule,
@@ -36,7 +41,10 @@ import { MatchInfoComponent } from './components/match-info/match-info.component
     MatMenuModule,
     MatButtonModule,
     MatIconModule,
-    HttpClientModule
+    HttpClientModule,
+    provideFirebaseApp(() => initializeApp(environment.firebase)),
+    provideAuth(() => getAuth()),
+    provideFirestore(() => getFirestore()),
   ],
   providers: [],
   bootstrap: [AppComponent]
